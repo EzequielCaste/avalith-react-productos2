@@ -1,23 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { React, useEffect, useState } from 'react';
+import { Catalogo } from './components/Catalogo';
 
 function App() {
+  const [productos, setProductos] = useState(null);
+  
+  useEffect(() => {
+    fetch('https://fakestoreapi.com/products')
+      .then((res) => res.json())
+      .then((json) => setProductos(json));
+  });
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Productos</h1>
+      {
+        productos 
+        ? <Catalogo productos={productos} />
+        : <h2>Loading...</h2>
+      }      
     </div>
   );
 }

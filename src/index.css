@@ -1,13 +1,71 @@
-body {
+* {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.App h1 {
+  text-align: center;
+  margin: 1rem 0;
+}
+.App h2 {
+  height: 100vh;
+  text-align: center;
+}
+.product-container {
+  width: 85vw;
+  max-width: 700px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr;
+}
+.product-card {
+  display: grid;
+  grid-template-columns: 30% 70%;
+  border: 1px solid #000;
+  background-color: #eee;
+  border-radius: 8px;
+  margin: 1rem;
+  padding: 1rem;
+ 
+  letter-spacing: 1px;
+  
+}
+.image-container {
+  flex: 30;
+  height: 250px;
+  display: flex;
+  justify-content: center;   
+}
+.image-container img {
+  border-radius: 8px; 
+  height: 100%;
+  width: 100%;  
+}
+.product-details {
+  flex: 70;
+  padding: 0 1rem;  
+}
+.title {
+  color: #444eee;  
+}
+.title, .category, .price, .description {
+  margin: 1rem 0;
+}
+.category {
+  font-size: 0.78rem;
+  font-weight: 400;
+}
+.price {
+  background-color: #444eee;  
+  color: #fff;
+  width: fit-content;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+.description {  
+  line-height: 1.3rem;
 }
