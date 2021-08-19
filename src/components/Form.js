@@ -11,7 +11,7 @@ const Form = ({agregar}) => {
     category: ''
   }
 
-  const [formValues, handleInputChange] = useForm(initialState);
+  const [formValues, handleInputChange, reset] = useForm(initialState);
 
   const {title, description, price, image,category} = formValues;
 
@@ -30,15 +30,17 @@ const Form = ({agregar}) => {
             )
         })
             .then(res => res.json())
-            .then(json => agregar((prev) => [...prev, {                                    
+            .then(json => agregar((prev) => [{                                    
               title,
-              price,
+              price: +price,
               description,
               image,
               category,
-            }]
-            ))
+            }, ...prev]
+            ))           
             .catch(err => console.log(err))
+            reset(),
+            window.scrollBy(-10000, -10000)
   }
   
   return (
@@ -55,7 +57,7 @@ const Form = ({agregar}) => {
           </div>
           <div className="form-control">
             <label htmlFor="price">Price</label>
-            <input pattern="/[0-9]+/" title="Only Numbers" type="number" min="0" max="9999" name="price" onChange={handleInputChange} value={price} />
+            <input pattern="/^\d*(\.\d{0,2})?$/" title="Only Numbers" type="number" min="0" max="9999" name="price" step="0.1" onChange={handleInputChange} value={price} />
           </div>
           <div className="form-control">
             <label htmlFor="category">Category</label>

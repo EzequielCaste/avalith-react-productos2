@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="App">
       <h1>Productos</h1>
-      <a href="#form">Ir al formulario</a>
+      <a className="form-link" href="#form">Agregar productos</a>
       {
         productos 
         ? <Catalogo productos={productos} />

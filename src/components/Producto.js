@@ -13,6 +13,7 @@ export const Producto = ({item}) => {
         <p className="category">Category: {category}</p>
         <p className="price">Price: ${price}</p>
         <p className="description">{description}</p>
+        <div className="purchase-btn">Add to cart</div>
       </div>    
       
     </div>
